@@ -13,7 +13,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer::all();
+
+        return view('pages.index', compact('customers'));
     }
 
     /**
@@ -21,7 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create');
     }
 
     /**
@@ -29,7 +31,11 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        $newCustomer = Customer::create($val_data);
+
+        return redirect()->route('customers.index');
     }
 
     /**
@@ -45,7 +51,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('pages.edit', compact('customer'));
     }
 
     /**
@@ -53,7 +59,11 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        $val_data = $request->validated();
+
+        $customer->update($val_data);
+
+        return redirect()->route('customers.index');
     }
 
     /**

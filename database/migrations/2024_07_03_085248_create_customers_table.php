@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('ragione sociale', 100);
-            $table->integer('telefono');
+            $table->string('ragione_sociale', 100);
+            $table->bigInteger('telefono');
             $table->string('email', 100);
             $table->string('indirizzo');
             $table->boolean('stato');
-            $table->string('codice fiscale', 16);
+            $table->string('codice_fiscale', 16);
             $table->timestamps();
         });
     }

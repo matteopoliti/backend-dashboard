@@ -10,11 +10,11 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ragione sociale',
+        'ragione_sociale',
         'telefono',
         'email',
         'indirizzo',
         'stato',
-        'codice fiscale',
+        'codice_fiscale',
     ];
 }
